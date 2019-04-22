@@ -8,7 +8,6 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
@@ -87,38 +86,38 @@
    <left>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
-            <ColumnConstraints hgrow="SOMETIMES" minWidth="10" prefWidth="100" />
+          <ColumnConstraints minWidth="10" prefWidth="100"/>
+          <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
+            <ColumnConstraints minWidth="10" prefWidth="100"/>
         </columnConstraints>
         <rowConstraints>
-          <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-          <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10" prefHeight="30" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10" prefHeight="30"/>
+          <RowConstraints minHeight="10" prefHeight="30"/>
+          <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
+            <RowConstraints minHeight="10" prefHeight="30"/>
         </rowConstraints>
          <children>
             <ImageView fitHeight="150" fitWidth="200" pickOnBounds="true" preserveRatio="true" GridPane.columnSpan="2" GridPane.rowSpan="4" />
@@ -206,10 +205,10 @@
                   <Tab text="Image4" />
               </tabs>
             </TabPane>
-            <Label text="Sorter:" GridPane.columnIndex="0" GridPane.rowIndex="12" />
-            <Label text="Start" GridPane.columnIndex="2" GridPane.rowIndex="12" />
-            <Label text="Stop" GridPane.columnIndex="3" GridPane.rowIndex="12" />
-            <Label text="Total" GridPane.columnIndex="4" GridPane.rowIndex="12" />
+            <Label text="Sorter:" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            <Label text="Start" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            <Label text="Stop" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
+            <Label text="Total" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="12" />
             <ComboBox prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="13" />
             <ComboBox prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="14" />
             <ComboBox prefWidth="200" GridPane.columnSpan="2" GridPane.rowIndex="15" />
@@ -222,18 +221,6 @@
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="Time4" GridPane.columnIndex="4" GridPane.rowIndex="16" />
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="Time5" GridPane.columnIndex="4" GridPane.rowIndex="17" />
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="Time6" GridPane.columnIndex="4" GridPane.rowIndex="18" />
-            <TextField promptText="Start 1" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-            <TextField promptText="Start 2" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-            <TextField promptText="Start 3" GridPane.columnIndex="2" GridPane.rowIndex="15" />
-            <TextField promptText="Start 4" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="16" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-            <TextField promptText="Start 5" GridPane.columnIndex="2" GridPane.rowIndex="17" />
-            <TextField promptText="Start 6" GridPane.columnIndex="2" GridPane.rowIndex="18" />
-            <TextField promptText="Stop 1" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="13" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-            <TextField promptText="Stop 2" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="14" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-            <TextField promptText="Stop 3" GridPane.columnIndex="3" GridPane.rowIndex="15" />
-            <TextField promptText="Stop 4" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.hgrow="NEVER" GridPane.rowIndex="16" GridPane.valignment="CENTER" GridPane.vgrow="NEVER" />
-            <TextField promptText="Stop 5" GridPane.columnIndex="3" GridPane.rowIndex="17" />
-            <TextField promptText="Stop 6" GridPane.columnIndex="3" GridPane.rowIndex="18" />
             <Label text="Lot Not Complete" textAlignment="RIGHT" GridPane.columnIndex="6" GridPane.rowIndex="14" />
             <Label text="Lot is Finished" GridPane.columnIndex="8" GridPane.rowIndex="14" />
             <Slider blockIncrement="1" majorTickUnit="1" max="1" minorTickCount="0" snapToTicks="true" GridPane.columnIndex="7" GridPane.rowIndex="14" />
@@ -243,7 +230,18 @@
             <Button mnemonicParsing="false" text="Finished" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
             <Label text="Total Time" GridPane.columnIndex="5" GridPane.rowIndex="17" />
             <Label layoutX="410" layoutY="658" style="-fx-font-size: 18; -fx-font-family: Arial;" text="TimeTotal" GridPane.columnIndex="5" GridPane.rowIndex="18" />
-            <Spinner fx:id="timeSpinnerStart1" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+            <ComboBox fx:id="startTime1" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="13" />
+            <ComboBox fx:id="stopTime1" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="13" />
+            <ComboBox fx:id="startTime2" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="14" />
+            <ComboBox fx:id="stopTime2" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="14" />
+            <ComboBox fx:id="startTime3" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="15" />
+            <ComboBox fx:id="stopTime3" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="15" />
+            <ComboBox fx:id="startTime4" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="16" />
+            <ComboBox fx:id="stopTime4" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="16" />
+            <ComboBox fx:id="startTime5" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="17" />
+            <ComboBox fx:id="stopTime5" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="17" />
+            <ComboBox fx:id="startTime6" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="18" />
+            <ComboBox fx:id="stopTime6" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="18" />
          </children>
       </GridPane>
    </left>
