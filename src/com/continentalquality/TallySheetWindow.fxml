@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="768" prefWidth="1024" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"> <!-- xmlns:fx="http://javafx.com/fxml/1"> -->
+<BorderPane fx:controller="com.continentalquality.TallySheetController" prefHeight="768" prefWidth="1024" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"> <!-- xmlns:fx="http://javafx.com/fxml/1"> -->
     <top>
         <HBox prefHeight="45" prefWidth="994" BorderPane.alignment="CENTER">
             <children>

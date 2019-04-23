@@ -6,6 +6,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
@@ -16,42 +17,46 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane prefHeight="768" prefWidth="1024" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea"> <!-- xmlns:fx="http://javafx.com/fxml/1"> -->
+<BorderPane fx:controller="com.continentalquality.MainWindowController" prefHeight="768" prefWidth="1024" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"> <!-- xmlns:fx="http://javafx.com/fxml/1"> -->
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
             <MenuBar>
               <menus>
-                <Menu mnemonicParsing="false" text="FIFO List" />
-                <Menu mnemonicParsing="false" text="Dock">
+                <Menu text="FIFO List" />
+                <Menu text="Dock">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Receiving" />
-                        <MenuItem mnemonicParsing="false" text="Shipping" />
-                        <MenuItem mnemonicParsing="false" text="Edit Parts" />
+                    <MenuItem text="Receiving" />
+                        <MenuItem text="Shipping" />
+                        <MenuItem text="Edit Parts" />
                   </items>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Sorting" />
-                  <Menu mnemonicParsing="false" text="Reports">
+                  <Menu text="Sorting" >
+                  <items>
+                      <MenuItem text="New Tally Sheet" onAction="#loadTally"/>
+                  </items>
+                  </Menu>
+                  <Menu text="Reports">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Lots in house" />
-                        <Menu mnemonicParsing="false" text="Completed Parts">
+                      <MenuItem text="Lots in house" />
+                        <Menu text="Completed Parts">
                           <items>
-                            <MenuItem mnemonicParsing="false" text="Search All By Date" />
-                              <MenuItem mnemonicParsing="false" text="Search By Part" />
+                            <MenuItem text="Search All By Date" />
+                              <MenuItem text="Search By Part" />
                           </items>
                         </Menu>
-                        <MenuItem mnemonicParsing="false" text="Search By Lot" />
-                        <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+                        <MenuItem text="Search By Lot" />
+                        <MenuItem text="Unspecified Action" />
                     </items>
                   </Menu>
-                  <Menu mnemonicParsing="false" text="Administration">
+                  <Menu text="Administration">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                      <MenuItem text="Action 1" />
                     </items>
                   </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem text="About" />
                   </items>
                 </Menu>
               </menus>
