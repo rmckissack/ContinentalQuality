@@ -8,6 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Icon Files jlfgr-1_0" level="application" />
-    <orderEntry type="library" name="mysql-connector-java-8.0.15" level="application" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.15" level="project" />
   </component>
 </module>
