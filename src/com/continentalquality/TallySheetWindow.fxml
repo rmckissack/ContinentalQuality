@@ -33,7 +33,7 @@
                   <Insets left="25" right="25" />
                </HBox.margin>
                <children>
-                      <MenuBar>
+                      <MenuBar disable="true">
                           <menus>
                               <Menu text="FIFO List" />
                               <Menu text="Dock">
