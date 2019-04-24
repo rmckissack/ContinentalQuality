@@ -22,7 +22,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane fx:controller="com.continentalquality.MainWindowController" prefHeight="768" prefWidth="1024" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1"> <!-- xmlns:fx="http://javafx.com/fxml/1"> -->
+<BorderPane prefHeight="768" prefWidth="1024" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.continentalquality.MainWindowController">
    <top>
       <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -36,9 +36,9 @@
                         <MenuItem text="Edit Parts" />
                   </items>
                 </Menu>
-                  <Menu text="Sorting" >
+                  <Menu text="Sorting">
                   <items>
-                      <MenuItem text="New Tally Sheet" onAction="#loadTally"/>
+                      <MenuItem onAction="#tallyMenuClicked" text="New Tally Sheet" /> <!-- fx:id="tallyMenuLink" -->
                   </items>
                   </Menu>
                   <Menu text="Reports">
@@ -110,6 +110,7 @@
               </yAxis>
             </BarChart>
             <PieChart title="Percentage of Parts" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button fx:id="tallyButton" onAction="#tallyButtonClick" text="Start New Tally Sheet" GridPane.columnIndex="1"  />
          </children>
       </GridPane>
    </center>
