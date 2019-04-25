@@ -1,5 +1,7 @@
 package com.continentalquality.model;
 
+import java.util.List;
+
 public class Part {
 
     private String partNumber;
@@ -15,6 +17,18 @@ public class Part {
     private String partNoGo;
     private String partBoxOnly;
     private String partComments;
+
+
+
+
+
+
+
+
+
+
+
+
 
     public String getPartNumber() {
         return partNumber;
