@@ -15,35 +15,42 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 
+import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TallySheetController{
 
-//    @Override
-//    public void initialize(URL url, ResourceBundle rb) {
-////    selectLotCombo.setItems(names);
-//    }
-
+    private Task<ObservableList<AvailableToSort>> task;
     @FXML
-            ComboBox selectLotCombo;
-
-    ObservableList<AvailableToSort> names = FXCollections.observableArrayList(Datasource.getInstance().queryAvailableLot());
+    private ComboBox selectLotCombo;
 
 
-//    public ObservableList<AvailableToSort> getNames() {
-//        return names;
-//    }
-//
-//    public void setNames(ObservableList<AvailableToSort> names) {
-//        this.names = names;
-//    }
+    public void initialize() {
+        System.out.println("entering initialize");
+        task = new Task<ObservableList<AvailableToSort>>() {
+            @Override
+            protected ObservableList<AvailableToSort> call() throws Exception {
+                final ObservableList<AvailableToSort> availables = FXCollections.observableArrayList(Datasource.getInstance().queryAvailableLot());
+                System.out.println("Observable called");
+                System.out.println(availables);
+                return availables;
+            }
+        };
+
+    selectLotCombo.itemsProperty().bind(task.valueProperty());
+    }
+    @FXML
+    public void comboMouse() {
+        new Thread(task).start();
+        System.out.println("Task kicked");
+    }
+
+
 }
 
 //class GetAvailableToSort extends Task {
 //
 //
-//
-//    @FXML
 //    @Override
 //    public ObservableList<AvailableToSort> call() {
 //        return FXCollections.observableArrayList(Datasource.getInstance().queryAvailableLot());
