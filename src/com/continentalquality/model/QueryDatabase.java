@@ -18,15 +18,15 @@ public class QueryDatabase {
 //    public static final String AVAILABLE_LOT_NUMBER = "viewAvailableLotNumber";
 //    public static final String AVAILABLE_PART_NUMBER = "viewAvailablePartNumber";
 //
-//    public List<ViewAvailableLot> queryAvaialableLot() {
+//    public List<AvailableToSort> queryAvaialableLot() {
 //
 //        try (Statement statement = conn.createStatement();
 //             ResultSet results = statement.executeQuery("SELECT Lot Part FROM AvailableLotView " +
 //                     "where Completed = 0")) {
 //
-//            List<ViewAvailableLot> availableLots = new ArrayList<>();
+//            List<AvailableToSort> availableLots = new ArrayList<>();
 //            while (results.next()) {
-//                ViewAvailableLot lot = new ViewAvailableLot();
+//                AvailableToSort lot = new AvailableToSort();
 //                lot.setViewAvailablePartNumber(results.getString(AVAILABLE_PART_NUMBER));
 //                lot.setViewAvailableLotNumber(results.getString(AVAILABLE_LOT_NUMBER));
 //                availableLots.add(lot);

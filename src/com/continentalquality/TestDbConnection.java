@@ -1,7 +1,7 @@
 package com.continentalquality;
 
+import com.continentalquality.model.AvailableToSort;
 import com.continentalquality.model.Datasource;
-import com.continentalquality.model.ViewAvailableLot;
 
 import java.util.List;
 
@@ -12,24 +12,28 @@ public class TestDbConnection {
 
 
 
-    Datasource datasource = new Datasource();
-if(!datasource.open()) {
-        System.out.println("Can't open Database");
-    }
+//    Datasource datasource = new Datasource();
+//if(!datasource.open()) {
+//        System.out.println("Can't open Database");
+//    }
+//
+//        List<AvailableToSort> lots = datasource.queryAvailableLot();
+//        if(lots == null) {
+//            System.out.println("No lots available!");
+//            return;
+//        }
+//
+//        for(AvailableToSort lot : lots) {
+//            System.out.println("ID Number = " + lot.getAvailableLotId() + ", Part Number = " +
+//                    lot.getAvailablePartNumber() +
+//                    ", Lot Number = " + lot.getAvailableLotNumber() +
+//                    ", Hot = " + lot.getAvailableHot()
+//                    );
+//        }
 
-        List<ViewAvailableLot> lots = datasource.queryAvaialableLot();
-        if(lots == null) {
-            System.out.println("No lots available!");
-            return;
-        }
-
-        for(ViewAvailableLot lot : lots) {
-            System.out.println("Part Number = " + lot.getViewAvailablePartNumber() + ", Lot Number = " + lot.getViewAvailableLotNumber());
-        }
 
 
-
-datasource.close();
+//datasource.close();
 
 
 }

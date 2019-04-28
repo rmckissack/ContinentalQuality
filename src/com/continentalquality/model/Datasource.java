@@ -3,9 +3,11 @@ package com.continentalquality.model;
  * Created by Randy McKissack 2019/04/23
  *
  */
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.LongToDoubleFunction;
 
 
 public class Datasource {
@@ -17,11 +19,39 @@ public class Datasource {
 
     public static final String CONNECTION_STRING = "jdbc:mysql://sort.continentalquality.com/" + DB_NAME + CONNECTION_PARAMETERS;
 
-    public Connection conn;
+//    constants for queryAvailable
+    public static final String VIEW_AVAILABLE = "AvailableToSort";
+    public static final String COLUMN_AVAILABLE_LOT_ID = "lotId";
+    public static final String COLUMN_AVAILABLE_LOT = "lotNumber";
+    public static final String COLUMN_AVAILABLE_PART = "partNumber";
+    public static final String COLUMN_HOT_LIST = "hotList";
+    public static final String VIEW_AVAILABLE_ORDER_BY =    " ORDER BY hotList DESC, lotNumber";
+    public static final int INDEX_AVAILABLE_LOT_ID = 1;
+    public static final int INDEX_AVAILABLE_LOT = 3;
+    public static final int INDEX_AVAILABLE_PART = 2;
+    public static final int INDEX_AVAILABLE_HOT = 4;
+
+    public static final String QUERY_AVAILABLE = "SELECT * FROM " +
+            VIEW_AVAILABLE + VIEW_AVAILABLE_ORDER_BY;
+    private PreparedStatement queryAvailable;
+
+
+    private Connection conn;
+
+    private static Datasource instance = new Datasource();
+
+    private Datasource() {
+
+    }
+
+    public static Datasource getInstance() {
+        return instance;
+    }
 
     public boolean open() {
         try {
             conn = DriverManager.getConnection(CONNECTION_STRING, USER_NAME, PASSWORD);
+            queryAvailable = conn.prepareStatement(QUERY_AVAILABLE);
             return true;
 
 
@@ -46,23 +76,24 @@ public class Datasource {
 
 
 //    Method to build list of lots available for sorting
+    public List<AvailableToSort> queryAvailableLot() {
 
-    public static final String AVAILABLE_LOT_NUMBER = "Lot";
-    public static final String AVAILABLE_PART_NUMBER = "Part";
+        String sb = "SELECT * FROM " + VIEW_AVAILABLE + VIEW_AVAILABLE_ORDER_BY;
 
-    public List<ViewAvailableLot> queryAvaialableLot() {
 
         try (Statement statement = conn.createStatement();
-             ResultSet results = statement.executeQuery("SELECT * FROM AvailableLotsView")) {
+             ResultSet results = statement.executeQuery(sb)) {
 
-            List<ViewAvailableLot> availableLots = new ArrayList<>();
+            List<AvailableToSort> availableLots = new ArrayList<>();
             while (results.next()) {
-                ViewAvailableLot lot = new ViewAvailableLot();
-                lot.setViewAvailablePartNumber(results.getString(AVAILABLE_PART_NUMBER));
-                lot.setViewAvailableLotNumber(results.getString(AVAILABLE_LOT_NUMBER));
+                AvailableToSort lot = new AvailableToSort();
+                lot.setAvailableLotId(results.getInt(INDEX_AVAILABLE_LOT_ID));
+                lot.setAvailableLotNumber(results.getString(INDEX_AVAILABLE_LOT));
+                lot.setAvailablePartNumber(results.getString(INDEX_AVAILABLE_PART));
+                lot.setAvailableHot(results.getString(INDEX_AVAILABLE_HOT));
                 availableLots.add(lot);
             }
-            System.out.println();
+//            System.out.println();
             return availableLots;
 
         } catch (SQLException e) {
@@ -70,7 +101,16 @@ public class Datasource {
             return null;
         }
     }
-}
+
+
+
+    }
+
+
+
+
+
+
 
 
 

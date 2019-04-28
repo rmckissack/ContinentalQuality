@@ -186,7 +186,7 @@
                   <Insets right="5" />
                </GridPane.margin></Label>
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="BoxesHighValue" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-            <ComboBox prefWidth="150" promptText="Select Lot Number" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <ComboBox fx:id="selectLotCombo"  prefWidth="150" promptText="Select Lot Number" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <ComboBox prefWidth="150" promptText="Select Table Number" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
             <Label minWidth="35" style="-fx-font-size: 24; -fx-background-color: Red;" text="(M)" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
             <Label minWidth="35" style="-fx-font-size: 24; -fx-background-color: Blue; -fx-text-fill: White;" text="(P)" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
@@ -226,12 +226,13 @@
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="Time4" GridPane.columnIndex="4" GridPane.rowIndex="16" />
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="Time5" GridPane.columnIndex="4" GridPane.rowIndex="17" />
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="Time6" GridPane.columnIndex="4" GridPane.rowIndex="18" />
-            <Label text="Lot Not Complete" textAlignment="RIGHT" GridPane.columnIndex="6" GridPane.rowIndex="14" />
-            <Label text="Lot is Finished" GridPane.columnIndex="8" GridPane.rowIndex="14" />
+            <Label text="Lot Status" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.columnIndex="7" GridPane.rowIndex="13" />
+            <Label text="Not Complete" textAlignment="RIGHT" GridPane.columnIndex="6" GridPane.rowIndex="14" />
+            <Label text="Completed" GridPane.columnIndex="8" GridPane.rowIndex="14" />
             <Slider blockIncrement="1" majorTickUnit="1" max="1" minorTickCount="0" snapToTicks="true" GridPane.columnIndex="7" GridPane.rowIndex="14" />
             <TextField GridPane.columnIndex="7" GridPane.rowIndex="15" />
-            <Label text="Enter Overrun Amount" textAlignment="RIGHT" wrapText="true" GridPane.columnIndex="6" GridPane.rowIndex="15" />
-            <Label text="Enter 0 if no overrun" wrapText="true" GridPane.columnIndex="8" GridPane.rowIndex="15" />
+            <Label text="Enter Overrun" textAlignment="RIGHT" wrapText="true" GridPane.halignment="RIGHT" GridPane.columnIndex="6" GridPane.rowIndex="15" />
+            <Label text="Amount" wrapText="true" GridPane.columnIndex="8" GridPane.rowIndex="15" />
             <Button mnemonicParsing="false" text="Finished" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="17" />
             <Label text="Total Time" GridPane.columnIndex="5" GridPane.rowIndex="17" />
             <Label layoutX="410" layoutY="658" style="-fx-font-size: 18; -fx-font-family: Arial;" text="TimeTotal" GridPane.columnIndex="5" GridPane.rowIndex="18" />
