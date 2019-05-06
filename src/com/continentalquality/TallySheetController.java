@@ -20,27 +20,29 @@ import java.util.ResourceBundle;
 
 public class TallySheetController{
 
-    private Task<ObservableList<AvailableToSort>> task;
+    private Task<ObservableList<String>> task;
     @FXML
     private ComboBox selectLotCombo;
 
 
     public void initialize() {
         System.out.println("entering initialize");
-        task = new Task<ObservableList<AvailableToSort>>() {
+        task = new Task<ObservableList<String>>() {
             @Override
-            protected ObservableList<AvailableToSort> call() throws Exception {
-                final ObservableList<AvailableToSort> availables = FXCollections.observableArrayList(Datasource.getInstance().queryAvailableLot());
+            protected ObservableList<String> call() throws Exception {
+                System.out.println("entering initialize2");
+                ObservableList<String> availables = FXCollections.observableArrayList("123456", "4343434", "4444444");
                 System.out.println("Observable called");
-                System.out.println(availables);
                 return availables;
+//                Datasource.getInstance().queryAvailableLot()
             }
         };
 
     selectLotCombo.itemsProperty().bind(task.valueProperty());
+
     }
     @FXML
-    public void comboMouse() {
+    public void kickoffButton() {
         new Thread(task).start();
         System.out.println("Task kicked");
     }

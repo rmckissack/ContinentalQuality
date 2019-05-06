@@ -12,14 +12,15 @@ import java.util.function.LongToDoubleFunction;
 
 public class Datasource {
 
-    public static final String DB_NAME = "randyqua_sort_db";
+//constants for database connection
+    public static final String DB_NAME = "randyqua_sort";
     public static final String CONNECTION_PARAMETERS = "?serverTimezone=US/Eastern";
     public static final String USER_NAME = "randyqua_web";
     public static final String PASSWORD = "abc123!!!";
 
     public static final String CONNECTION_STRING = "jdbc:mysql://sort.continentalquality.com/" + DB_NAME + CONNECTION_PARAMETERS;
 
-//    constants for queryAvailable
+//    constants for queryAvailable To Sort
     public static final String VIEW_AVAILABLE = "AvailableToSort";
     public static final String COLUMN_AVAILABLE_LOT_ID = "lotId";
     public static final String COLUMN_AVAILABLE_LOT = "lotNumber";
@@ -31,16 +32,80 @@ public class Datasource {
     public static final int INDEX_AVAILABLE_PART = 2;
     public static final int INDEX_AVAILABLE_HOT = 4;
 
+//    constants for Lot
+    public static final String LOT_TABLE = "Lot";
+    public static final String LOT_COLUMN_LOT_ID = "lotId";
+    public static final String LOT_COLUMN_LOT_NUMBER = "lotNumber";
+    public static final String LOT_COLUMN_PART_NUMBER ="partNumber";
+    public static final String LOT_COLUMN_COMPLETED = "completed";
+    public static final int INDEX_LOT_LOT_ID = 1;
+    public static final int INDEX_LOT_LOT_NUMBER = 2;
+    public static final int INDEX_LOT_PART = 3;
+    public static final int INDEX_LOT_COMPLETED = 4;
+
+//    constants for initems
+    public static final String INITEMS_TABLE= "InItems";
+    public static final String INTIEMS_IN_ITEMS_ID = "inItemsId";
+    public static final String INITEMS_LOT_ID = "lotId";
+    public static final String INITEMS_INBOUND_BOL = "inboundBOL";
+    public static final String INITEMS_PO_NUMBER = "poNumber";
+    public static final String INITEMS_QUANTITY_OF_TUBS = "quantityOfTubs";
+    public static final String INITEMS_QUANTITY_OF_SKIDS = "quantityOfSkids";
+    public static final String INITEMS_QUANTITY_OF_BOXES = "quantityOfBoxes";
+
+//    constants for tally sheet
+    public static final String TALLY_SHEET_TABLE = "Tally";
+    public static final String TALLY_SHEET_TALLY_ID = "tallyId";
+    public static final String TALLY_SHEET_LOT_ID = "lotId";
+    public static final String TALLY_SHEET_TALLY_DATE = "tallyDate";
+    public static final String TALLY_SHEET_MUTILATION = "mutilation";
+    public static final String TALLY_SHEET_PLATING = "plating";
+    public static final String TALLY_SHEET_MIXED = "mixed";
+    public static final String TALLY_SHEET_NOGO = "noGo";
+    public static final String TALLY_SHEET_OVERFLOW = "overflow";
+    public static final String TALLY_SHEET_TABLE_NUMBER = "tableNumber";
+    public static final String TALLY_SHEET_TUB_COMPLETED = "tubCompleted";
+
+//    constants for box count
+    public static final String BOX_COUNT_TABLE = "BoxCount";
+    public static final String BOX_COUNT_ID = "id";
+    public static final String BOX_COUNT_TALLY_ID = "tallyId";
+    public static final String BOX_COUNT_BOX_TIME = "boxTime";
+
+//    constants for parts
+    public static final String PART_TABLE = "Part";
+    public static final String PART_PART_NUMBER = "partNumber";
+    public static final String PART_DESCRIPTION = "description";
+    public static final String PART_PACKAGING = "packaging";
+    public static final String PART_PER_BOX = "perBox";
+    public static final String PART_PER_SKID = "perSkid";
+    public static final String PART_WEIGHT_CLASS = "weightClass";
+    public static final String PART_PIECE_PRICE = "piecePrice";
+    public static final String PART_MUTILATION = "mutilation";
+    public static final String PART_PLATING = "plating";
+    public static final String PART_MIXED = "mixed";
+    public static final String PART_NOGO = "noGo";
+    public static final String PART_BOX_ONLY = "boxOnly";
+    public static final String PART_COMMENTS = "comments";
+
+
+
+
+//    query statements
+
     public static final String QUERY_AVAILABLE = "SELECT * FROM " +
             VIEW_AVAILABLE + VIEW_AVAILABLE_ORDER_BY;
     private PreparedStatement queryAvailable;
 
+    public static final String QUERY_READY_TO_SHIP = "SELECT * FROM " +
+            LOT_TABLE;
+    private PreparedStatement readyToShip;
 
     private Connection conn;
 
     private static Datasource instance = new Datasource();
 
-    private Datasource() {
+    public Datasource() {
 
     }
 
@@ -51,7 +116,7 @@ public class Datasource {
     public boolean open() {
         try {
             conn = DriverManager.getConnection(CONNECTION_STRING, USER_NAME, PASSWORD);
-            queryAvailable = conn.prepareStatement(QUERY_AVAILABLE);
+            readyToShip = conn.prepareStatement(QUERY_READY_TO_SHIP);
             return true;
 
 
@@ -103,18 +168,33 @@ public class Datasource {
     }
 
 
+    //    Method to build list of lots available for sorting
+    public List<AvailableToShip> queryReadyToShip() {
 
+        String sb = "SELECT "+ LOT_COLUMN_LOT_ID + ", " + LOT_COLUMN_LOT_NUMBER + ", " + LOT_COLUMN_PART_NUMBER + ", " +
+                LOT_COLUMN_COMPLETED + " FROM " + LOT_TABLE + " WHERE " + LOT_COLUMN_COMPLETED + "='1'";
+
+
+        try (Statement statement = conn.createStatement();
+             ResultSet results = statement.executeQuery(sb)) {
+
+            List<AvailableToShip> availableToShip = new ArrayList<>();
+            while (results.next()) {
+                AvailableToShip ship = new AvailableToShip();
+                ship.setReadyLotId(results.getInt(INDEX_LOT_LOT_ID));
+                ship.setReadyLotNumber(results.getString(INDEX_LOT_LOT_NUMBER));
+                ship.setReadyPartNumber(results.getString(INDEX_LOT_PART));
+                ship.setReadyCompleted(results.getBoolean(INDEX_LOT_COMPLETED));
+                availableToShip.add(ship);
+            }
+//            System.out.println();
+            return availableToShip;
+
+        } catch (SQLException e) {
+            System.out.println("Query failed: " + e.getMessage());
+            return null;
+        }
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    }

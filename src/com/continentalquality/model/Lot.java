@@ -1,11 +1,13 @@
 package com.continentalquality.model;
 
+import java.util.Date;
+
 public class Lot {
 
     private int lotId;
     private String lotNumber;
     private String lotPartNumber;
-    private String lotDueDate;
+    private Date lotDueDate;
     private boolean lotHot;
     private boolean lotCompleted;
 
@@ -33,11 +35,11 @@ public class Lot {
         this.lotPartNumber = lotPartNumber;
     }
 
-    public String getLotDueDate() {
+    public Date getLotDueDate() {
         return lotDueDate;
     }
 
-    public void setLotDueDate(String lotDueDate) {
+    public void setLotDueDate(Date lotDueDate) {
         this.lotDueDate = lotDueDate;
     }
 

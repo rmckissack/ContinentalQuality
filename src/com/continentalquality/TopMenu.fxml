@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<HBox prefHeight="45" prefWidth="994" BorderPane.alignment="CENTER" fx:controller="com.continentalquality.ShippingController">>
+    <children>
+        <HBox>
+            <HBox.margin>
+                <Insets left="25" right="25" />
+            </HBox.margin>
+            <children>
+                <MenuBar disable="false">
+                    <menus>
+                        <Menu text="FIFO List" />
+                        <Menu text="Dock">
+                            <items>
+                                <MenuItem text="Receiving" />
+                                <MenuItem text="Shipping" />
+                                <MenuItem text="Edit Parts" />
+                            </items>
+                        </Menu>
+                        <Menu text="Sorting" />
+                        <Menu text="Reports">
+                            <items>
+                                <MenuItem text="Lots in house" />
+                                <Menu text="Completed Parts">
+                                    <items>
+                                        <MenuItem text="Search All By Date" />
+                                        <MenuItem text="Search By Part" />
+                                    </items>
+                                </Menu>
+                                <MenuItem text="Search By Lot" />
+                                <MenuItem text="Unspecified Action" />
+                            </items>
+                        </Menu>
+                        <Menu text="Administration">
+                            <items>
+                                <MenuItem text="Action 1" />
+                            </items>
+                        </Menu>
+                        <Menu text="Help">
+                            <items>
+                                <MenuItem text="About" />
+                            </items>
+                        </Menu>
+                    </menus>
+                    <padding>
+                        <Insets left="10" right="10" />
+                    </padding>
+                </MenuBar>
+                <Label fx:id="PageName" text="Page Name">
+                    <HBox.margin>
+                        <Insets left="15" />
+                    </HBox.margin>
+                    <font>
+                        <Font size="24" />
+                    </font>
+                </Label>
+            </children>
+        </HBox>
+    </children>
+    <BorderPane.margin>
+        <Insets bottom="15" left="15" right="15" />
+    </BorderPane.margin>
+</HBox>

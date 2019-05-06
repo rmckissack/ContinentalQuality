@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400.0" minWidth="600.0" prefHeight="800.0" prefWidth="1200.0" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.continentalquality.ShippingController">
+
+    <top>
+        <HBox prefHeight="45" prefWidth="994" BorderPane.alignment="CENTER">
+            <children>
+                <HBox>
+                    <HBox.margin>
+                        <Insets left="25" right="25" />
+                    </HBox.margin>
+                    <children>
+                        <MenuBar disable="true">
+                            <menus>
+                                <Menu text="FIFO List" />
+                                <Menu text="Dock">
+                                    <items>
+                                        <MenuItem text="Receiving" />
+                                        <MenuItem text="Shipping" />
+                                        <MenuItem text="Edit Parts" />
+                                    </items>
+                                </Menu>
+                                <Menu text="Sorting" />
+                                <Menu text="Reports">
+                                    <items>
+                                        <MenuItem text="Lots in house" />
+                                        <Menu text="Completed Parts">
+                                            <items>
+                                                <MenuItem text="Search All By Date" />
+                                                <MenuItem text="Search By Part" />
+                                            </items>
+                                        </Menu>
+                                        <MenuItem text="Search By Lot" />
+                                        <MenuItem text="Unspecified Action" />
+                                    </items>
+                                </Menu>
+                                <Menu text="Administration">
+                                    <items>
+                                        <MenuItem text="Action 1" />
+                                    </items>
+                                </Menu>
+                                <Menu text="Help">
+                                    <items>
+                                        <MenuItem text="About" />
+                                    </items>
+                                </Menu>
+                            </menus>
+                            <padding>
+                                <Insets left="10" right="10" />
+                            </padding>
+                        </MenuBar>
+                        <Label text="Select Items To Ship">
+                            <HBox.margin>
+                                <Insets left="15" />
+                            </HBox.margin>
+                            <font>
+                                <Font size="24" />
+                            </font>
+                        </Label>
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="15" left="15" right="15" />
+            </BorderPane.margin>
+        </HBox>
+    </top>
+
+    <center>
+        <TableView fx:id="tableReady" prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="tableColumnId" prefWidth="150.0" text="Lot ID">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="tableColumnId" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnLot" prefWidth="150.0" text="Lot Number">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="readyLotNumber" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnPart" prefWidth="150.0" text="Part Number">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="readyPartNumber" />
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="tableColumnCompleted" prefWidth="100.0" text="Lot Completed">
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyToShipCompleted"/>;-->
+<!--                    </cellValueFactory>-->
+                </TableColumn>
+            </columns>
+        </TableView>
+    </center>
+   <right>
+      <VBox alignment="CENTER" prefWidth="180.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="refresh" onAction="#loadData" text="Refresh List">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button text="Button">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+            <Button text="Button">
+               <VBox.margin>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </right>
+
+<bottom>
+
+
+
+</bottom>
+
+
+
+
+
+
+</BorderPane>

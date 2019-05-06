@@ -186,7 +186,7 @@
                   <Insets right="5" />
                </GridPane.margin></Label>
             <Label style="-fx-font-size: 18; -fx-font-family: Arial;" text="BoxesHighValue" GridPane.columnIndex="5" GridPane.halignment="LEFT" GridPane.rowIndex="3" />
-            <ComboBox fx:id="selectLotCombo" onMouseEntered="#comboMouse" prefWidth="150" promptText="Select Lot Number" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <ComboBox fx:id="selectLotCombo" prefWidth="150" promptText="Select Lot Number" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
             <ComboBox prefWidth="150" promptText="Select Table Number" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
             <Label minWidth="35" style="-fx-font-size: 24; -fx-background-color: Red;" text="(M)" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
             <Label minWidth="35" style="-fx-font-size: 24; -fx-background-color: Blue; -fx-text-fill: White;" text="(P)" textAlignment="CENTER" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
@@ -248,6 +248,7 @@
             <ComboBox fx:id="stopTime5" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="17" />
             <ComboBox fx:id="startTime6" prefWidth="150" GridPane.columnIndex="2" GridPane.rowIndex="18" />
             <ComboBox fx:id="stopTime6" prefWidth="150" GridPane.columnIndex="3" GridPane.rowIndex="18" />
+            <Button fx:id="kickoffButton" mnemonicParsing="false" text="Button" GridPane.columnIndex="9" GridPane.rowIndex="19" />
          </children>
       </GridPane>
    </left>
