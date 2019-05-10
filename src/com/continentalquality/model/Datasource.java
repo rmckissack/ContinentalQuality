@@ -32,6 +32,28 @@ public class Datasource {
     public static final int INDEX_AVAILABLE_PART = 2;
     public static final int INDEX_AVAILABLE_HOT = 4;
 
+
+//    constants for query Available to Ship
+    public static final String VIEW_READY_TO_SHIP = "AvailableToShip";
+    public static final String COLUMN_READY_LOTID = "lotId";
+    public static final String COLUMN_READY_LOT = "lotNumber";
+    public static final String COLUMN_READY_PART = "partNumber";
+    public static final String COLUMN_READY_PER_BOX = "perBox";
+    public static final String COLUMN_READY_PER_SKID = "perSkid";
+    public static final String COLUMN_READY_COMPLETE = "complete";
+    public static final String COLUMN_READY_BOXED = "boxed";
+    public static final String COLUMN_READY_ALREADY_SHIPPED = "shipped";
+    public static final String COLUMN_READY_READY_TO_SHIP = "ready";
+    public static final int INDEX_READY_LOTID = 1;
+    public static final int INDEX_READY_LOT = 2;
+    public static final int INDEX_READY_PART = 3;
+    public static final int INDEX_READY_PER_BOX = 4;
+    public static final int INDEX_READY_PER_SKID = 5;
+    public static final int INDEX_READY_COMPLETE = 6;
+    public static final int INDEX_READY_BOXED = 7;
+    public static final int INDEX_READY_ALREADY_SHIPPED = 8;
+    public static final int INDEX_READY_READY_TO_SHIP = 9;
+
 //    constants for Lot
     public static final String LOT_TABLE = "Lot";
     public static final String LOT_COLUMN_LOT_ID = "lotId";
@@ -98,7 +120,7 @@ public class Datasource {
     private PreparedStatement queryAvailable;
 
     public static final String QUERY_READY_TO_SHIP = "SELECT * FROM " +
-            LOT_TABLE;
+            VIEW_READY_TO_SHIP;
     private PreparedStatement readyToShip;
 
     private Connection conn;
@@ -168,11 +190,10 @@ public class Datasource {
     }
 
 
-    //    Method to build list of lots available for sorting
+    //    Method to build list of lots available for shipping
     public List<AvailableToShip> queryReadyToShip() {
 
-        String sb = "SELECT "+ LOT_COLUMN_LOT_ID + ", " + LOT_COLUMN_LOT_NUMBER + ", " + LOT_COLUMN_PART_NUMBER + ", " +
-                LOT_COLUMN_COMPLETED + " FROM " + LOT_TABLE + " WHERE " + LOT_COLUMN_COMPLETED + "='1'";
+        String sb = "SELECT * FROM " + VIEW_READY_TO_SHIP;
 
 
         try (Statement statement = conn.createStatement();
@@ -181,10 +202,16 @@ public class Datasource {
             List<AvailableToShip> availableToShip = new ArrayList<>();
             while (results.next()) {
                 AvailableToShip ship = new AvailableToShip();
-                ship.setReadyLotId(results.getInt(INDEX_LOT_LOT_ID));
-                ship.setReadyLotNumber(results.getString(INDEX_LOT_LOT_NUMBER));
-                ship.setReadyPartNumber(results.getString(INDEX_LOT_PART));
-                ship.setReadyCompleted(results.getBoolean(INDEX_LOT_COMPLETED));
+                ship.setReadyLotId(results.getInt(INDEX_READY_LOTID));
+                ship.setReadyLotNumber(results.getString(INDEX_READY_LOT));
+                ship.setReadyPartNumber(results.getString(INDEX_READY_PART));
+                ship.setReadyPerBox(results.getInt(INDEX_READY_PER_BOX));
+                ship.setReadyPerSkid(results.getInt(INDEX_READY_PER_SKID));
+                ship.setReadyCompleted(results.getBoolean(INDEX_READY_COMPLETE));
+                ship.setReadyBoxed(results.getInt(INDEX_READY_BOXED));
+                ship.setReadyShipped(results.getInt(INDEX_READY_ALREADY_SHIPPED));
+                ship.setReadyToShip(results.getInt(INDEX_READY_READY_TO_SHIP));
+
                 availableToShip.add(ship);
             }
 //            System.out.println();

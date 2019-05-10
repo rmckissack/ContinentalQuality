@@ -1,21 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.cell.PropertyValueFactory?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="600" prefHeight="800" prefWidth="1200" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.continentalquality.ShippingController">
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="400" minWidth="600" prefHeight="800" prefWidth="1200" stylesheets="@StyleSheet.css" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.continentalquality.SelectedShippingController">
 
     <top>
         <HBox prefHeight="45" prefWidth="994" BorderPane.alignment="CENTER">
@@ -64,7 +57,7 @@
                                 <Insets left="10" right="10" />
                             </padding>
                         </MenuBar>
-                        <Label text="Select Items To Ship">
+                        <Label text="Finalize Shipment">
                             <HBox.margin>
                                 <Insets left="15" />
                             </HBox.margin>
@@ -80,92 +73,59 @@
             </BorderPane.margin>
         </HBox>
     </top>
-
     <center>
         <TableView fx:id="tableReady" prefHeight="200" prefWidth="600" BorderPane.alignment="CENTER">
             <columns>
-            <TableColumn fx:id="tableColumnSelect" prefWidth="75" text="Select" >
-                <cellValueFactory>
-                    <PropertyValueFactory property="select" />
-                </cellValueFactory>
-            </TableColumn>
                 <TableColumn fx:id="tableColumnId" prefWidth="100" text="Lot ID" visible="false">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="tableColumnId" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="tableColumnId" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnLot" prefWidth="80" text="Lot Number">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyLotNumber" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyLotNumber" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnPart" prefWidth="80" text="Part Number">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyPartNumber" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyPartNumber" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnPerBox" prefWidth="75" text="Per Box">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyPerBox" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyPerBox" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnPerSkid" prefWidth="75" text="Per Skid">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyPerSkid" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyPerSkid" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
 
                 <TableColumn fx:id="tableColumnCompleted" prefWidth="100" text="Lot Completed">
-<!--                    <cellValueFactory>-->
-<!--                        <PropertyValueFactory property="readyCompleted"/>;-->
-<!--                    </cellValueFactory>-->
+                    <!--                    <cellValueFactory>-->
+                    <!--                        <PropertyValueFactory property="readyCompleted"/>;-->
+                    <!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnBoxed" prefWidth="55" text="Boxed">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyBoxed" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyBoxed" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnShipped" prefWidth="100" text="Already Shipped">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyShipped" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyShipped" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
                 <TableColumn fx:id="tableColumnToShip" prefWidth="100" text="Ready To Ship">
-                    <cellValueFactory>
-                        <PropertyValueFactory property="readyToShip" />
-                    </cellValueFactory>
+<!--                    <cellValueFactory>-->
+<!--                        <PropertyValueFactory property="readyToShip" />-->
+<!--                    </cellValueFactory>-->
                 </TableColumn>
 
             </columns>
         </TableView>
     </center>
-   <right>
-      <VBox alignment="CENTER" prefWidth="180" BorderPane.alignment="CENTER">
-         <children>
-            <Button fx:id="refresh" onAction="#loadData" text="Refresh List">
-               <VBox.margin>
-                  <Insets bottom="25" left="25" right="25" top="25" />
-               </VBox.margin>
-            </Button>
-            <Button fx:id="ship" onAction="#shipSelected" text="Ship Selected">
-               <VBox.margin>
-                  <Insets bottom="25" left="25" right="25" top="25" />
-               </VBox.margin>
-            </Button>
-
-         </children>
-      </VBox>
-   </right>
-
-<bottom>
 
 
-
-</bottom>
-
-
-
-
-
-
-</BorderPane>
+    </BorderPane>
